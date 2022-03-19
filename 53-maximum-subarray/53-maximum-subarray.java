@@ -1,19 +1,24 @@
 class Solution {
     public int maxSubArray(int[] nums) {
-       
-        int currentSum=Integer.MIN_VALUE;
-        int maxSum=Integer.MIN_VALUE;
-        for(int num:nums){
-            
-            if(currentSum >0 ){
-                currentSum += num; 
+        
+        // go over each number anytime sum goes negative drop the previous sum 
+        
+        int maxSum = Integer.MIN_VALUE;
+        int currSum = Integer.MIN_VALUE;
+        
+        for(int n: nums){
+            if(currSum > 0){
+                currSum += n;
             }
             else{
-                currentSum = num; 
+                currSum = n;
             }
             
-            maxSum = Math.max(currentSum, maxSum);
+            maxSum = Math.max(maxSum, currSum);
+            
         }
+        
         return maxSum;
+        
     }
 }
