@@ -5,16 +5,12 @@ class KthLargest {
     public KthLargest(int k, int[] nums) {
            this.k = k;
             for(int n: nums){
-                queue.add(n);
-                
-                if(queue.size() > k){
-                    
-                    queue.poll();
-                }
-                
-                
+                add(n);              
+               
             }
     }
+    
+   
     
     public int add(int val) {
         if(queue.size()<k){
