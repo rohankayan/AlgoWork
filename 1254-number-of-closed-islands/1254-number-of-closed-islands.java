@@ -7,17 +7,40 @@ class Solution {
         
         m = grid.length;
         n = grid[0].length;
-        int result = 0;        
-        for(int i=0;i<m;i++){
-            
-            for(int j = 0; j<n ; j++){
-                
+        int result = 0;  
+        /**
+        
+        for(int i=0;i<m;i++){            
+            for(int j = 0; j<n ; j++){                
                 if(i==0 || j==0 || i == m-1 || j ==n-1){                    
                     if(grid[i][j]==0){
                         fill(grid,i,j);
                     }
                 }
             }
+        }
+        **/
+        
+         int[] iBorders = {0,m-1};
+        
+         int[] jBorders = {0,n-1};
+        
+        for(int i: iBorders){
+            for(int j = 0; j<n ; j++){                
+                
+                        fill(grid,i,j);
+                    }         
+            
+            
+        }
+        
+         for(int j: jBorders){
+            for(int i = 0; i<m ; i++){                
+                
+                        fill(grid,i,j);
+                    }         
+            
+            
         }
         
          for(int i=0;i<m;i++){
