@@ -12,12 +12,12 @@ class Solution {
         
         for(int i =1; i<  nums.length ; i++){
             
-            System.out.println("Before swap MaxProduct:"+ maxProduct +",minProduct:"+ minProduct +",num:"+nums[i]);
+            //System.out.println("Before swap MaxProduct:"+ maxProduct +",minProduct:"+ minProduct +",num:"+nums[i]);
             if(nums[i] < 0){                
                 swap(maxProduct,minProduct);
             }
             
-            System.out.println("MaxProduct:"+ maxProduct +",minProduct:"+ minProduct +",num:"+nums[i]);
+            //System.out.println("MaxProduct:"+ maxProduct +",minProduct:"+ minProduct +",num:"+nums[i]);
             
             maxProduct = Math.max(maxProduct*nums[i],nums[i] );
             minProduct = Math.min(minProduct*nums[i],nums[i] );
