@@ -2,6 +2,13 @@ func dfs(grid [][]int, i, j, n, m int) int {
 	if i < 0 || j < 0 || i >= n || j >= m {
 		return 0
 	}
+    
+    if i == 0 || j == 0 || i == n-1 || j == m-1 {
+        if grid[i][j] == 0 {
+            return 0
+        }
+		
+	}
 
 	if grid[i][j] == 1 || grid[i][j] == 2 {
 		return 1
