@@ -21,7 +21,7 @@ func dfs(grid [][]int, i, j, n, m int) int {
 	ans *= dfs(grid, i+1, j, n, m) //why are you multiplying here , border condition will make it 0 always 
   //yes,  idea is if any border condition we hit , we have to consider as zerro and multiple so ans will be zero 
   // and when all are 1 , ans will 1 , that will get added to result.
-  
+    
 	ans *= dfs(grid, i, j+1, n, m)
 	ans *= dfs(grid, i-1, j, n, m)
 	ans *= dfs(grid, i, j-1, n, m)
