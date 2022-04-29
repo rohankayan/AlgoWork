@@ -30,12 +30,8 @@ class Solution {
             //System.out.println(String.format("i:%d,j:%d,distance:%d", i, j, distance));
             for(int [] d: directions){                
                 markDistance(rooms, i+d[0], j+d[1], distance+1);
-        }
-            
-        }
-        
-       
-        
+             }            
+        }          
         
         return;
         
