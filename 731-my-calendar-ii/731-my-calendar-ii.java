@@ -17,10 +17,8 @@ class MyCalendarTwo {
             
             if(activeBooking >=3){
                 timeCount.put(start, timeCount.getOrDefault(start,0)-1);
-                timeCount.put(end, timeCount.getOrDefault(end,0)+1);
-                
-                return false;
-                
+                timeCount.put(end, timeCount.getOrDefault(end,0)+1);                
+                return false;                
             }
         }
         
