@@ -6,14 +6,14 @@ class MyCalendarTwo {
     }
     
     public boolean book(int start, int end) {
-       timeCount.put(start, timeCount.getOrDefault(start,0)+1);
+        timeCount.put(start, timeCount.getOrDefault(start,0)+1);
         timeCount.put(end, timeCount.getOrDefault(end,0)-1);
         
         int activeBooking =0;
         
-        for(Map.Entry<Integer,Integer> e: timeCount.entrySet()){
+        for(int e: timeCount.values()){
             
-            activeBooking += e.getValue();
+            activeBooking += e;
             
             if(activeBooking >=3){
                 timeCount.put(start, timeCount.getOrDefault(start,0)-1);
