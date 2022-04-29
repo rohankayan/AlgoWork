@@ -9,10 +9,9 @@ class Solution {
             for(int j=0;j< rooms[0].length;j++){
                 
                 if(rooms[i][j]==0){                    
-                    markDistance(rooms, i+1, j, 1);
-                    markDistance(rooms, i, j+1, 1);
-                    markDistance(rooms, i-1, j, 1);
-                    markDistance(rooms, i, j-1, 1);
+                    for(int [] d: directions){                
+                        markDistance(rooms, i+d[0], j+d[1], 1);
+                    }
                 }
             }
         }
