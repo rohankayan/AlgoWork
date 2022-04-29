@@ -1,5 +1,6 @@
 class Solution {
     public boolean buddyStrings(String s, String goal) {
+        if (s.length() != goal.length()) return false;
         
         Map<Character,Integer> charCountMap = new HashMap<java.lang.Character,java.lang.Integer>();
         
