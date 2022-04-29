@@ -18,6 +18,8 @@ class MyCalendarTwo {
                 timeCount.put(end, timeCount.get(end)+1); 
                 if (timeCount.get(start) == 0)
                     timeCount.remove(start);
+                if (timeCount.get(end) == 0)
+                    timeCount.remove(end);
                 return false;                
             }
         }
