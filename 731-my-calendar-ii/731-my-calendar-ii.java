@@ -11,13 +11,13 @@ class MyCalendarTwo {
         
         int activeBooking =0;
         
-        for(int e: timeCount.values()){
-            
-            activeBooking += e;
-            
+        for(int e: timeCount.values()){            
+            activeBooking += e;            
             if(activeBooking >=3){
                 timeCount.put(start, timeCount.get(start)-1);
-                timeCount.put(end, timeCount.get(end)+1);                
+                timeCount.put(end, timeCount.get(end)+1); 
+                if (timeCount.get(start) == 0)
+                    timeCount.remove(start);
                 return false;                
             }
         }
