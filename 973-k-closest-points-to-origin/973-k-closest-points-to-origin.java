@@ -1,29 +1,25 @@
 class Solution {
+    
+    PriorityQueue<int[]> heap = new PriorityQueue<int[]>((p1,p2)-> distance(p2)-distance(p1));
     public int[][] kClosest(int[][] points, int k) {
-        
-        PriorityQueue<int[]> heap = new PriorityQueue<int[]>((n1,n2)-> euclideanDistance(n2[0],n2[1])-euclideanDistance(n1[0],n1[1]));
-        
-        int index = 0;
-        for(int[] point: points){
-            
-            heap.add(point);
-            if(heap.size()>k){
+        for(int[] p: points){
+            heap.add(p);
+            if(heap.size()>k)
                 heap.poll();
-            }
+            
         }
         
-        List<int[]> results = new ArrayList();
-        int[][] answer = new int[k][2];
+        int[][] results = new int[k][2];
         
-        while(!heap.isEmpty()){
-            results.add(heap.poll());
+        for(int i=0; i<k;i++){
+            
+            results[i]=heap.poll();
         }
-        return results.toArray(answer);
+        return results;
     }
     
-    
-    private int euclideanDistance(int x, int y){
-  
-    return x*x + y*y;    
+    int distance(int p[]){
+        return (p[0]*p[0] + p[1]*p[1]);
+        
     }
 }
