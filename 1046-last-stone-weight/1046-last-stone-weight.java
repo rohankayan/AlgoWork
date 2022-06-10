@@ -1,23 +1,23 @@
 class Solution {
+    
+    PriorityQueue<Integer> heap = new PriorityQueue<Integer>((a,b)-> b-a);
     public int lastStoneWeight(int[] stones) {
-        PriorityQueue<Integer> stoneWeights = new PriorityQueue(Comparator.reverseOrder());
-        
         for(int s: stones){
-            stoneWeights.add(s);
+            heap.add(s);
         }
         
-        while(stoneWeights.size()>1){
-            int s1 = stoneWeights.poll();
-            int s2 = stoneWeights.poll();
-            if(s2 != s1)
-            stoneWeights.add(Math.abs(s2-s1));
-                        
+        while(heap.size()>1){
+            
+            int stone1 = heap.poll();
+            int stone2 = heap.poll();
+            
+            if(stone1 != stone2)
+                heap.add(Math.abs(stone1-stone2));
         }
         
-        if(!stoneWeights.isEmpty())
-            return stoneWeights.poll();
-        
-        return 0;
-        
-    }
+        if(heap.size()==1)
+            return heap.poll();
+        else
+            return 0;
+        }
 }
