@@ -5,8 +5,7 @@ class KthLargest {
     public KthLargest(int k, int[] nums) {
            this.k = k;
             for(int n: nums){
-                add(n);              
-               
+                add(n); 
             }
     }
     
