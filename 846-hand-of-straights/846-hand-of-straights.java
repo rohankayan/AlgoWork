@@ -27,7 +27,7 @@ class Solution {
                     if(numCount.containsKey(smallest+i))
                     {
                         currCount = numCount.get(smallest+i);
-                        if(currCount <= 0){
+                        if(currCount == 0){
                             return false;
                         }
                         numCount.put(smallest+i,--currCount);
@@ -35,7 +35,6 @@ class Solution {
                     else{
                         return false;
                     }
-
                 }
             }
             
