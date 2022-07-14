@@ -37,8 +37,11 @@ class Solution {
                     }
                 }
             }
+            else{
+                heap.poll();
+            }
             
-            heap.poll();
+            
         }
         return true;
 
