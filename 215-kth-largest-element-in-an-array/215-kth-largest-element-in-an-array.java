@@ -4,7 +4,7 @@ class Solution {
         PriorityQueue<Integer> queue = new PriorityQueue<Integer>((a,b)-> b-a);
         
         for(int i: nums){            
-            queue.add(i);           
+            queue.add(i);       
            
         }
         
