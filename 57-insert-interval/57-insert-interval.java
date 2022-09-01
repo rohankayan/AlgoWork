@@ -2,9 +2,7 @@ class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         
         
-         List<int[]> result = new ArrayList<>();
-    
-
+         List<int[]> result = new ArrayList<>(); 
 
         for(int[] interval : intervals){
             if(newInterval == null ||  interval[1]< newInterval[0]){
@@ -15,16 +13,11 @@ class Solution {
                 result.add(newInterval);
                 result.add(interval);
                 newInterval = null;
-
             }
-
             else{
-
                 newInterval[0] = Math.min(interval[0],newInterval[0]);
                 newInterval[1] = Math.max(interval[1], newInterval[1]);
             }
-
-
 
         }
 
