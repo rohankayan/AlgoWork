@@ -13,12 +13,14 @@ class Solution {
             int tempProfit = 0;
             if(p< minPurchasePrice)
                 minPurchasePrice=p;
-            if(p > minPurchasePrice)
+            if(p > minPurchasePrice){
                 tempProfit = p - minPurchasePrice;
-            maxProfit = Math.max(maxProfit,tempProfit);
+                maxProfit = Math.max(maxProfit,tempProfit);
+            }
+                
             
         }
         
-        return maxProfit;
+        return Math.max(maxProfit,0);
     }
 }
