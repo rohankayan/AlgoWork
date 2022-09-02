@@ -1,29 +1,20 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        
-        List<List<Integer>>  results = new ArrayList<>();
-        
-        dfs(results, new ArrayList<>(), nums, 0);
-        
+        List<List<Integer>> results = new ArrayList<>();
+        dfs(0, new ArrayList(), nums, results);
         return results;
+    }
+
+    private void dfs(int i, List currSequence, int[] nums, List<List<Integer>> results){
+        if(i >= nums.length){
+            results.add(new ArrayList<>(currSequence));
+            return;
+        }
+        
+        currSequence.add(nums[i]);
+        dfs(i+1, currSequence, nums, results);
+        currSequence.remove(currSequence.size()-1);
+        dfs(i+1, currSequence, nums, results);
         
     }
-    
-    void dfs(List<List<Integer>>  results, List<Integer> currentSq,int[] nums, int i ){
-        
-       if(i>= nums.length)
-       {
-           results.add(new ArrayList(currentSq));
-           return;
-       }
-           
-        currentSq.add(nums[i]);
-        dfs(results, currentSq, nums, i+1);
-        currentSq.remove(currentSq.size()-1);
-        dfs(results, currentSq, nums, i+1);
-          
-       
-           
-       }
-    
 }
