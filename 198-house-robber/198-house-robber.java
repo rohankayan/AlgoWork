@@ -1,28 +1,20 @@
 class Solution {
     public int rob(int[] nums) {
         
-        int maxAmount = Integer.MIN_VALUE;
+        int maxTillPrevHouse =0;
+        int maxTillPrevToPrevHouse =0;
         
-        int maxAmountTillPrev = 0;
-        int maxAmountTillPrevPrev = 0;
-        
-        
-        for(int i=0; i< nums.length;i++){
-            //if he robs this house 
+        int max = Integer.MIN_VALUE;
+        for(int n: nums){
             
-            int robAmount1 = maxAmountTillPrevPrev + nums[i];
+            max = Math.max(maxTillPrevToPrevHouse+n,maxTillPrevHouse);
+            maxTillPrevToPrevHouse = maxTillPrevHouse;
+            maxTillPrevHouse = max;
             
-            int localMax = Math.max(robAmount1,maxAmountTillPrev);
-            maxAmountTillPrevPrev = maxAmountTillPrev;
-            
-            maxAmountTillPrev = localMax;
-            
-            maxAmount = Math.max(localMax,maxAmount);
-                
             
         }
         
-        return maxAmount;
+        return max;
         
     }
 }
