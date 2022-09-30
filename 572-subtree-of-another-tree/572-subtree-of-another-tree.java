@@ -20,10 +20,8 @@ class Solution {
         if(root ==null || subRoot == null)
             return false;
         
-        if(root.val == subRoot.val){
-            boolean same = isSameTree(root, subRoot);
-            if(same)
-                return same;
+        if(isSameTree(root, subRoot)){
+            return true;
         }
         return isSubtree(root.left,subRoot) || isSubtree(root.right,subRoot);
     }
