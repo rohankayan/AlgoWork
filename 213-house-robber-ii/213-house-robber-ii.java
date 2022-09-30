@@ -1,10 +1,10 @@
 class Solution {
     public int rob(int[] nums) {
         if(nums.length >1){
-           int max1 = rob1(nums,0,nums.length-1);
-        int max2 = rob1(nums,1,nums.length);
-        
-        return Math.max(max1,max2); 
+            int max1 = rob1(nums,0,nums.length-1);
+            int max2 = rob1(nums,1,nums.length);
+
+            return Math.max(max1,max2); 
         }
         
         return nums[0];
