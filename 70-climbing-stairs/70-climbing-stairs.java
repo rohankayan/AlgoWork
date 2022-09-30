@@ -1,20 +1,17 @@
 class Solution {
     public int climbStairs(int n) {
         
-        int numberOfWayToPrev = 1;
+        int wayToReachPrevToPrevStep = 1;
+        int wayToReachPrevStep = 1;
         
-        int numberOfWayToPrevPrev = 0;
-        
-        
-        for(int i=1;i<=n;i++){
+        for(int i=2;i<=n;i++ ){
             
-            int temp = numberOfWayToPrev + numberOfWayToPrevPrev;
-            numberOfWayToPrevPrev =numberOfWayToPrev;
-            numberOfWayToPrev = temp;
-            
+            int steps = wayToReachPrevToPrevStep + wayToReachPrevStep;
+            wayToReachPrevToPrevStep = wayToReachPrevStep;
+            wayToReachPrevStep = steps;
         }
         
-        return numberOfWayToPrev;
+        return wayToReachPrevStep;
         
     }
 }
