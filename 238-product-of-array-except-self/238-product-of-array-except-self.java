@@ -12,14 +12,14 @@ class Solution {
         for(int i = nums.length-2;i>=0;i--){
             rightMultiplication[i] = rightMultiplication[i+1] * nums[i+1];
         }
-        System.out.println(Arrays.toString(nums));
+        //System.out.println(Arrays.toString(nums));
         for(int i = 0;i< nums.length;i++){
             nums[i] = leftMultiplication[i] * rightMultiplication[i];
         }
 
-        System.out.println(Arrays.toString(leftMultiplication));
-        System.out.println(Arrays.toString(rightMultiplication));
-        System.out.println(Arrays.toString(nums));
+        //System.out.println(Arrays.toString(leftMultiplication));
+        //System.out.println(Arrays.toString(rightMultiplication));
+        //System.out.println(Arrays.toString(nums));
         return  nums;
     }
 }
