@@ -5,12 +5,14 @@ class Solution {
         rightIndex =height.length-1;
         int globalMax = Integer.MIN_VALUE;
         while(leftIndex<=rightIndex){
-            int localMax = Math.min(height[leftIndex],height[rightIndex])*(rightIndex-leftIndex);
+            int localMax = 0;
             
             if(height[leftIndex]<height[rightIndex]){
+                localMax = height[leftIndex]*(rightIndex-leftIndex);
                 leftIndex++;
             }
             else{
+                localMax = height[rightIndex]*(rightIndex-leftIndex);
                 rightIndex--;
             }
             globalMax = Math.max(globalMax,localMax);
