@@ -1,28 +1,22 @@
 class Solution {
     public int maxArea(int[] height) {
-        
-         int leftIndex = 0;
-        int rightIndex = height.length-1;
-        int maxVol = Integer.MIN_VALUE;
-
-        while(leftIndex< rightIndex){
-            int currentVol = Math.min(height[leftIndex], height[rightIndex]) * (rightIndex-leftIndex);
+        int leftIndex, rightIndex;
+        leftIndex =0;
+        rightIndex =height.length-1;
+        int globalMax = Integer.MIN_VALUE;
+        while(leftIndex<=rightIndex){
+            int localMax = Math.min(height[leftIndex],height[rightIndex])*(rightIndex-leftIndex);
             
-            if(height[leftIndex]< height[rightIndex]){
+            if(height[leftIndex]<height[rightIndex]){
                 leftIndex++;
             }
             else{
                 rightIndex--;
             }
-            
-            maxVol = Math.max(currentVol,maxVol);
-            
+            globalMax = Math.max(globalMax,localMax);
         }
         
-        return  maxVol;
-        
-        
-        
-        
+        return globalMax;
+
     }
 }
