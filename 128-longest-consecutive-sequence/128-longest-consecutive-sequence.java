@@ -1,48 +1,20 @@
 class Solution {
     public int longestConsecutive(int[] nums) {
-        Map <Integer,Boolean> numberAndNotVisited = new HashMap();
-        
-        for(int n: nums){
-            
-            numberAndNotVisited.put(n,Boolean.TRUE);
-            
+        Set<Integer> inputSet = new HashSet<Integer>();
+
+        for(int n:nums ){
+            inputSet.add(n);
         }
-        
-        int right ;
-        int left;
-        int currentLen ;
-        int maxLen = 0;
-        for(int n: nums){
-            
-            //Number is already visited
-            if(!numberAndNotVisited.get(n))
-                continue;
-            
-            right = n+1;
-            currentLen = 1;
-            left = n -1;
-            
-            while(numberAndNotVisited.containsKey(right)){
-                
-                currentLen++;
-                numberAndNotVisited.put(right,Boolean.FALSE);
-                right++;
-                
+        int globalLength = 0;
+        for(int n:nums ){
+            if(!inputSet.contains(n-1)){
+                int tempLength = 1;
+                while(inputSet.contains(++n)){
+                    tempLength++;
+                }
+                globalLength = Math.max(globalLength, tempLength);
             }
-            
-            while(numberAndNotVisited.containsKey(left)){
-                
-                currentLen++;
-                numberAndNotVisited.put(left,Boolean.FALSE);
-                left--;                
-            }
-            
-            if(currentLen > maxLen)
-                maxLen = currentLen;
-            
         }
-        
-        return maxLen;
-        
+        return globalLength;
     }
 }
