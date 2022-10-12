@@ -4,12 +4,7 @@ class Solution {
 
         for(String s : operations){
 
-            try{
-                int score = Integer.parseInt(s);
-                scores.push(score);
-                continue;
-            }
-            catch (Exception ex){}
+          
 
             switch (s){
                 case "C":
@@ -24,6 +19,9 @@ class Solution {
                     scores.push(last);
                     scores.push(sum);
                     break;
+                default:
+                    int score = Integer.parseInt(s);
+                    scores.push(score);
             }
 
 
