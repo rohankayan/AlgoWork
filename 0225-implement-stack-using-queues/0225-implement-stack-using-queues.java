@@ -9,28 +9,42 @@ class MyStack {
     }
 
   public void push(int x) {
-        pushQ.add(x);
-        while(!popQ.isEmpty()){
-            pushQ.add(popQ.poll());
-        }
-        Queue<Integer> tempQ = pushQ;
-        pushQ = popQ;
-        popQ = tempQ;
+        pushQ.add(x);        
     }
 
     public int pop() {
-        return popQ.poll();
+        int size = pushQ.size();
+        while(size>1){
+            popQ.add(pushQ.poll());
+            size--;
+        }
+        int top = pushQ.poll();
+        Queue<Integer> tempQ = pushQ;
+        pushQ = popQ;
+        popQ = tempQ;
+        return  top;
     }
 
     public int top() {
-
-        return popQ.peek();
+        int size = pushQ.size();
+        int top = -1;
+        while(size>0){
+            top = pushQ.poll();
+            popQ.add(top);
+            size--;
+        }
+        
+        Queue<Integer> tempQ = pushQ;
+        pushQ = popQ;
+        popQ = tempQ;
+        return  top;
+      
     }
 
 
 
     public boolean empty() {
-        return  popQ.isEmpty();
+        return  pushQ.isEmpty();
     }
 
    
