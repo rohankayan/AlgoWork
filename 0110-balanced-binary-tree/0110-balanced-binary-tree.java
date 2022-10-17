@@ -14,16 +14,20 @@
  * }
  */
 class Solution {
-     public boolean isBalanced(TreeNode root) {
+    public boolean isBalanced(TreeNode root) {
         if(root == null)
             return true;
         
-        return Math.abs(heightOfTree(root.left)-heightOfTree(root.right))<=1 && isBalanced( root.left) && isBalanced(root.right) ;
+        return helper(root) != -1 ;
     }
-    
-    private int heightOfTree(TreeNode node){
+
+    private int helper(TreeNode node){
         if(node == null)
             return 0;
-        return 1 + Math.max(heightOfTree(node.right),heightOfTree(node.left));
+        int leftHeight = helper(node.left);
+        int rightHeight = helper(node.right);
+        if(leftHeight == -1 || rightHeight == -1 || Math.abs(leftHeight-rightHeight)>1)
+            return -1;
+        return 1 + Math.max(leftHeight,rightHeight);
     }
 }
