@@ -14,26 +14,27 @@
  * }
  */
 class Solution {
-    int finalSum =0;
+    int total = 0;
     public int sumNumbers(TreeNode root) {
-        helper(new StringBuffer(),  root);
-        return finalSum;
+        helper(new StringBuffer(), root);
+        return total;
     }
-    
-    void helper( StringBuffer currentSeq, TreeNode node){
-        
-        if(node == null){
-            return;
-        }
-        currentSeq.append(node.val);
-        if(node.left == null && node.right == null){
-            //System.out.println(finalSum);
-            finalSum += Integer.parseInt(currentSeq.toString());
+    private void helper(StringBuffer currSeq, TreeNode node){
+
+        if(node!= null){
+            currSeq.append(node.val);
         }
         else{
-            
-            helper(new StringBuffer(currentSeq),  node.left);
-            helper(new StringBuffer(currentSeq),  node.right);
+            return;
         }
+
+        if(node.left == null && node.right == null){
+            //System.out.println(currSeq);
+            total += Integer.parseInt(currSeq.toString());
+        }
+
+        helper(new StringBuffer(currSeq), node.left);
+        helper(new StringBuffer(currSeq),node.right);
+
     }
 }
