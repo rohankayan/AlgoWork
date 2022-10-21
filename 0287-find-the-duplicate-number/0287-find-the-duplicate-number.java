@@ -1,34 +1,22 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        int left = 1;
-        int right = nums.length -1;
-        int duplicate = -1;
-        
-        int mid =  left + (right-left)/2;
-        
-        while(left <= right){
-            
-            mid =  left + (right-left)/2;
-            
-            int curr = mid;
-            int count =0;
-            for(int n: nums){
-                
-                if(n<= curr){
-                    count++;
-                }
-            }
-            
-            if(count > curr){
-                duplicate = curr;
-                right = mid-1;
-            }
-            else{
-                left = mid+1;
-            }
+        int slow1 = 0;
+        int fast = 0;
+
+        do{
+
+            slow1 = nums[slow1];
+            fast = nums[nums[fast]];
+        }while(slow1 != fast);
+
+        int slow2 = 0;
+
+        while(slow1 != slow2){
+
+            slow1 = nums[slow1];
+            slow2 = nums[slow2];
         }
-        return duplicate;
+
+        return slow1;
     }
-    
-    
 }
