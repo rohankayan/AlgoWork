@@ -14,32 +14,21 @@ class Solution {
                 }
             }
         }
-       //System.out.println("nodes"+nodes);
-        while (!nodes.isEmpty()){
-            
+
+        while (!nodes.isEmpty()){            
             Pair<Integer,Integer> node = nodes.poll();
-            //System.out.println(node);
             for (int[] neibhor : neighbours){
                 int newI =node.key+ neibhor[0];
                 int newJ = node.value+ neibhor[1];
-                
-                //System.out.println("newI="+newI+",newJ="+newJ);
-                
-                if(newI < 0 || newI >= m || newJ <0 || newJ >=n )
-                    continue;
-                
-                if(grid[newI][newJ] != 1)
-                    continue;
-                //System.out.println("I="+newI+",J="+newJ+",grid value="+grid[newI][newJ]);
-                
-                    grid[newI][newJ] = 2;
-                    neighbors.add(new Pair<>(newI,newJ));
-                
+               
+                if(newI < 0 || newI >= m || newJ <0 || newJ >=n || grid[newI][newJ] != 1)
+                    continue;              
+               
+                grid[newI][newJ] = 2;
+                neighbors.add(new Pair<>(newI,newJ));               
 
             }
-            
-            //System.out.println("Nodes size = "+ nodes.size()+" neighbors size = "+ neighbors.size());
-
+           
             if(nodes.isEmpty() && !neighbors.isEmpty()){
                 nodes = neighbors;
                 neighbors = new LinkedList<>();
