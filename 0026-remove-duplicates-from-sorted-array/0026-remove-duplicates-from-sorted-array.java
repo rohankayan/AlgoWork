@@ -1,14 +1,13 @@
 class Solution {
-    public int removeDuplicates(int[] nums) {
-        int positionForUnique = 0;
-        int currentScanIndex = 1;
-        
-        while(currentScanIndex < nums.length){
-            if(nums[currentScanIndex] != nums[positionForUnique]){
-                nums[++positionForUnique] = nums[currentScanIndex];
+     public int removeDuplicates(int[] nums) {
+        int posToInsert = 1;
+        int posScan = 0;
+        while(posScan < nums.length-1){
+            if(nums[posScan] != nums[posScan+1]){
+                nums[posToInsert++] = nums[posScan+1];
             }
-            currentScanIndex++;
+            posScan++;
         }
-        return positionForUnique+1;
+        return posToInsert;
     }
 }
