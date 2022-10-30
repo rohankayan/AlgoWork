@@ -1,20 +1,19 @@
 class Solution {
      public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> results = new ArrayList<>();
-        backtracking(1,n,k,results, new ArrayList<>());
+        backtracking(results, new ArrayList<>(),1,n,k);
         return results;
     }
 
-    void backtracking(int index, int n, int k, List<List<Integer>> results, List<Integer> curr){
-        if(curr.size() == k){
-            results.add(new ArrayList<>(curr));            
-            return;  
-        }
-            
-        for(int i = index; i <= n; i++){
-            curr.add(i);
-            backtracking(i+1,n,k,results,curr);
-            curr.remove(curr.size()-1);
-        }
+    void backtracking(List<List<Integer>> combs, List<Integer> comb,int start, int n, int k){
+       if(k==0) {
+			combs.add(new ArrayList<Integer>(comb));
+			return;
+		}
+		for(int i=start;i<=n;i++) {
+			comb.add(i);
+			backtracking(combs, comb, i+1, n, k-1);
+			comb.remove(comb.size()-1);
+		}
     }
 }
