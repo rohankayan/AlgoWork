@@ -9,18 +9,16 @@ class MinStack {
     }
     
     public void push(int val) {
-        if(stack.isEmpty()){            
-            stack.push(val);
+        if(stack.isEmpty()){          
             minstack.push(val);
         }
         else{
-            int currentMin = minstack.peek();
-            
+            int currentMin = minstack.peek();            
             if(val <= currentMin){
                 minstack.push(val);
-            }
-            stack.push(val);
+            }         
         }
+        stack.push(val);
         
         //stack.forEach(s-> System.out.print(Arrays.toString(s)));
         //System.out.println();
