@@ -25,24 +25,12 @@ class MinStack {
     }
     
     public int top() {
-        if(!stack.isEmpty()){
-            return stack.peek();
-             
-        }           
-        else{
-            //System.out.println("Stack is empty");
-            return -1;
-        }
+        return stack.peek();
             
     }
     
     public int getMin() {
-        if(!minstack.isEmpty())
-            return minstack.peek();
-        else{
-            //System.out.println("Stack is empty");
-            return -1;
-        }
+       return minstack.peek();
             
     }
 }
