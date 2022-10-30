@@ -9,15 +9,8 @@ class MinStack {
     }
     
     public void push(int val) {
-        if(stack.isEmpty()){          
-            minstack.push(val);
-        }
-        else{
-            int currentMin = minstack.peek();            
-            if(val <= currentMin){
-                minstack.push(val);
-            }         
-        }
+        int min = Math.min(val,minstack.isEmpty()? val: minstack.peek() );
+        minstack.push(min);
         stack.push(val);
         
         //stack.forEach(s-> System.out.print(Arrays.toString(s)));
@@ -26,12 +19,8 @@ class MinStack {
     }
     
     public void pop() {
-        if(!stack.isEmpty()){
-            int curr = stack.pop();
-            if(curr == minstack.peek()){
-                minstack.pop();
-            }
-        }
+       stack.pop();
+        minstack.pop();
             
     }
     
