@@ -10,9 +10,8 @@ class Solution {
             while(j<k){
                 int temp = nums[i]+nums[j]+ nums[k];
                 if(temp == 0){
-                    results.add( Arrays.asList(nums[i],nums[j],nums[k]));
-                    j++;
-                    k--;
+                    results.add( Arrays.asList(nums[i],nums[j++],nums[k--]));
+             
                 }
                 else if(temp>0){
                     k--;
