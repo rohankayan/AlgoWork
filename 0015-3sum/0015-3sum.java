@@ -21,7 +21,7 @@ class Solution {
                 }
             }
         }
-        return results.stream().collect(Collectors.toList());
+        return new ArrayList<>(results);
     }
     
     
