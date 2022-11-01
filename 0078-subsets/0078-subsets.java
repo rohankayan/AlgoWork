@@ -1,28 +1,20 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> results = new ArrayList<List<Integer>>();
-        int length = nums.length;
-        dfs(results, new ArrayList(), 0, length, nums);
+        List<List<Integer>> results = new ArrayList<>();
+        backtracking(0, new ArrayList<>(), nums, nums.length, results);
         return results;
-        
     }
     
-    
-    void dfs(List<List<Integer>> results, List<Integer> curr, int i, int size,int[] nums ){
+    void backtracking( int index , List<Integer> currSeq, int[] nums, int length, List<List<Integer>> results){
         
-        
-        if(i>=size){
-            results.add(new ArrayList<>(curr));
+        if(index >= length){
+            results.add(new ArrayList<>(currSeq));
             return;
         }
-            
         
-        
-        curr.add(nums[i]);
-        dfs(results, new ArrayList(curr), i+1, size, nums);
-        curr.remove(curr.size()-1);
-        dfs(results, curr, i+1, size, nums);
+        currSeq.add(nums[index]);
+        backtracking(index+1, currSeq, nums, length, results);
+        currSeq.remove(currSeq.size()-1);
+        backtracking(index+1, currSeq, nums, length, results);
     }
-    
-    
 }
