@@ -13,7 +13,7 @@ class Solution {
         
     }
     
-    public int pickIndex() {
+    public int pickIndexLinear() {
         
         double probability = totalSum * Math.random();
         
@@ -26,6 +26,30 @@ class Solution {
         }
         
         return -1;
+        
+    }
+    
+    
+     public int pickIndex() {
+        
+        double probability = totalSum * Math.random();
+        
+        int l = 0; 
+        int r = prefixSum.length-1;
+        
+         while(l< r){
+             int mid = (l + r)/2;
+             
+             if(probability> prefixSum[mid]){
+                 l = mid +1;
+             }
+             else{
+                 r = mid;
+             }
+             
+         }
+        
+        return r;
         
     }
 }
