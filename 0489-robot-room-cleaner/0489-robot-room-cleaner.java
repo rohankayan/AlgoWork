@@ -39,6 +39,7 @@ class Solution {
          int newI = i + neighbors[(n+direction)%4][0];
          int newJ = j + neighbors[(n+direction)%4][1];
          int newD =   (n+direction)%4 ;
+            //move call will take care of walls and visited will take care of already visited 
          if(!visited.contains(new Pair(newI,newJ))&& robot.move()){
              backtracking(newI,newJ,newD);
              //move back
