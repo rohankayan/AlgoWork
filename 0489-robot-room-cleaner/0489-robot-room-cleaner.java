@@ -24,12 +24,11 @@ class Solution {
     Robot robot;
     
     void moveBack(){
-        robot.turnRight();
-        robot.turnRight();
+        robot.turnLeft();
+        robot.turnLeft();
         robot.move();
         robot.turnRight();
-        robot.turnRight();
-        
+        robot.turnRight();        
     }
     
     void backtracking(int i, int j , int direction){
